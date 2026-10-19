@@ -1,0 +1,80 @@
+[==========] Running 27 tests from 7 test cases.
+[----------] Global test environment set-up.
+[----------] 6 tests from Worker
+[ RUN      ] Worker.NoYearsWorked_ReturnsBaseSalary
+[       OK ] Worker.NoYearsWorked_ReturnsBaseSalary (1 ms)
+[ RUN      ] Worker.FiveYearsWorked_AddsFiftyPercent
+[       OK ] Worker.FiveYearsWorked_AddsFiftyPercent (0 ms)
+[ RUN      ] Worker.TenYearsWorked_DoublesSalary
+[       OK ] Worker.TenYearsWorked_DoublesSalary (0 ms)
+[ RUN      ] Worker.MoreThanTenYears_CapsAtDoubleSalary
+[       OK ] Worker.MoreThanTenYears_CapsAtDoubleSalary (0 ms)
+[ RUN      ] Worker.MonthBeforeHireAnniversary_DoesNotCountYear
+[       OK ] Worker.MonthBeforeHireAnniversary_DoesNotCountYear (0 ms)
+[ RUN      ] Worker.HiredInSameMonth_HasZeroFullYears
+[       OK ] Worker.HiredInSameMonth_HasZeroFullYears (0 ms)
+[----------] 6 tests from Worker (5 ms total)
+
+[----------] 5 tests from Foreman
+[ RUN      ] Foreman.NoYearsNoSubordinates_ReturnsBaseSalary
+[       OK ] Foreman.NoYearsNoSubordinates_ReturnsBaseSalary (0 ms)
+[ RUN      ] Foreman.EightYearsWorked_CapsSeniorityAtFortyPercent
+[       OK ] Foreman.EightYearsWorked_CapsSeniorityAtFortyPercent (0 ms)
+[ RUN      ] Foreman.TwelveYears_StillCappedAtFortyPercent
+[       OK ] Foreman.TwelveYears_StillCappedAtFortyPercent (0 ms)
+[ RUN      ] Foreman.AddsSevenPercentOfDirectSubordinatesSalaries
+[       OK ] Foreman.AddsSevenPercentOfDirectSubordinatesSalaries (0 ms)
+[ RUN      ] Foreman.SevenPercentAppliesOnlyToDirectSubordinates
+[       OK ] Foreman.SevenPercentAppliesOnlyToDirectSubordinates (0 ms)
+[----------] 5 tests from Foreman (3 ms total)
+
+[----------] 3 tests from Manager
+[ RUN      ] Manager.NoSubordinates_ReturnsBaseSalary
+[       OK ] Manager.NoSubordinates_ReturnsBaseSalary (0 ms)
+[ RUN      ] Manager.ThreePercentOfAllDescendants_IncludingIndirect
+[       OK ] Manager.ThreePercentOfAllDescendants_IncludingIndirect (0 ms)
+[ RUN      ] Manager.NoSeniorityBonus_EvenAfterManyYears
+[       OK ] Manager.NoSeniorityBonus_EvenAfterManyYears (0 ms)
+[----------] 3 tests from Manager (3 ms total)
+
+[----------] 7 tests from Hierarchy
+[ RUN      ] Hierarchy.SetManager_CreatesLink
+[       OK ] Hierarchy.SetManager_CreatesLink (0 ms)
+[ RUN      ] Hierarchy.SetManager_IdempotentCall
+[       OK ] Hierarchy.SetManager_IdempotentCall (0 ms)
+[ RUN      ] Hierarchy.SetManager_ReassignsBetweenManagers
+[       OK ] Hierarchy.SetManager_ReassignsBetweenManagers (0 ms)
+[ RUN      ] Hierarchy.SetManager_ThrowsOnSelfAssignment
+[       OK ] Hierarchy.SetManager_ThrowsOnSelfAssignment (1 ms)
+[ RUN      ] Hierarchy.SetManager_ThrowsOnCycle
+[       OK ] Hierarchy.SetManager_ThrowsOnCycle (0 ms)
+[ RUN      ] Hierarchy.SetManager_ThrowsIfManagerIsWorker
+[       OK ] Hierarchy.SetManager_ThrowsIfManagerIsWorker (0 ms)
+[ RUN      ] Hierarchy.SetManager_ThrowsOnNullArguments
+[       OK ] Hierarchy.SetManager_ThrowsOnNullArguments (1 ms)
+[----------] 7 tests from Hierarchy (12 ms total)
+
+[----------] 4 tests from Factory
+[ RUN      ] Factory.TotalSalary_IsSumOfAllOwnSalaries
+[       OK ] Factory.TotalSalary_IsSumOfAllOwnSalaries (0 ms)
+[ RUN      ] Factory.EmptyFactory_TotalSalaryIsZero
+[       OK ] Factory.EmptyFactory_TotalSalaryIsZero (1 ms)
+[ RUN      ] Factory.IndependentRoots_EachCounted
+[       OK ] Factory.IndependentRoots_EachCounted (1 ms)
+[ RUN      ] Factory.DeepHierarchy_IsHandledWithoutStackOverflow
+[       OK ] Factory.DeepHierarchy_IsHandledWithoutStackOverflow (514 ms)
+[----------] 4 tests from Factory (522 ms total)
+
+[----------] 1 test from Polymorphism
+[ RUN      ] Polymorphism.TypeNameAndDynamicCast
+[       OK ] Polymorphism.TypeNameAndDynamicCast (0 ms)
+[----------] 1 test from Polymorphism (1 ms total)
+
+[----------] 1 test from Integration
+[ RUN      ] Integration.FullScenario_MatchesManualComputation
+[       OK ] Integration.FullScenario_MatchesManualComputation (0 ms)
+[----------] 1 test from Integration (2 ms total)
+
+[----------] Global test environment tear-down
+[==========] 27 tests from 7 test cases ran. (563 ms total)
+[  PASSED  ] 27 tests.
